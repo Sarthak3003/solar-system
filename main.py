@@ -9,10 +9,8 @@ def spheres(size, clr, dist=0):
     x0 = dist+size*np.outer(np.cos(theta),np.sin(phi))
     y0 = size*np.outer(np.sin(theta),np.sin(phi))
     z0 = size*np.outer(np.ones(100),np.cos(phi))
-
     trace = go.Surface(x=x0,y=y0,z=z0,colorscale=[[0,clr],[1,clr]])
     trace.update(showscale=False)
-
     return trace
 
 def orbits(dist,offset=0,clr='white',wdth=2):
@@ -24,7 +22,6 @@ def orbits(dist,offset=0,clr='white',wdth=2):
         xcord=xcord+[(round(np.cos(math.radians(i)),5))*dist+offset]
         ycord=ycord+[(round(np.sin(math.radians(i)),5))*dist]
         zcord=zcord+[0]
-    
     trace = go.Scatter3d(x=xcord, y=ycord, z=zcord, marker=dict(size=0.1), line=dict(color=clr,width=wdth))
     return trace
 
@@ -56,7 +53,6 @@ trace15 = orbits(distance_from_sun[5]) #Jupyter
 trace16 = orbits(distance_from_sun[6]) #Saturn
 trace17 = orbits(distance_from_sun[7]) #Uranus
 trace18 = orbits(distance_from_sun[8]) #Neptune
-
 trace21 = orbits(23, distance_from_sun[6], '#827962', 3) 
 trace22 = orbits(24, distance_from_sun[6], '#827962', 3) 
 trace23 = orbits(25, distance_from_sun[6], '#827962', 3)
